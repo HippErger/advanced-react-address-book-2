@@ -22,8 +22,7 @@ class UserDetails extends Component {
     return (
       <div>
         <button onClick={this.handleBtnClick.bind(this)} > More </button>
-        <h4>{this.props.personOne.firstName}</h4>
-        <h4>{this.props.personOne.lastName}</h4>
+        <h4>{this.props.personOne.firstName + " " + this.props.personOne.lastName}</h4>
         <GenerateDetails person={this.props.personOne} isTrue={this.state.userWasChoosen} />
       </div>
     );

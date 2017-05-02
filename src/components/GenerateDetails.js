@@ -6,10 +6,10 @@ function GenerateDetails(props) {
     return (
       <div>
         <img src={props.person.avatar} alt="" />
-        <h3>{props.person.address}</h3>
-        <h3>{props.person.phone}</h3>
-        <h3>{props.person.occupation}</h3>
-        <h3>{props.person.state}</h3>
+        <p>{props.person.address}</p>
+        <p>{props.person.phone}</p>
+        <p>{props.person.occupation}</p>
+        <p>{props.person.state}</p>
       </div>
     );
   } return (
