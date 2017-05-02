@@ -4,19 +4,32 @@ import PropTypes from "prop-types";
 
 function AlphaSection(props) {
   const totalUsers = props.users;
+  const filteredUsers = totalUsers.filter((person) => {
+    return (
+      person.lastName.charAt(0) === props.letter
+    );
+  });
+  if (filteredUsers.length === 0) {
+    return (
+      <div>
+        <h3>{props.letter.toUpperCase()}</h3>
+        <h6>No Entries</h6>
+      </div>
+    );
+  }
   return (
-    <ul>
-      <li>{props.letter.toUpperCase()}</li>
-      {totalUsers.map((item, index) => {
+    <div>
+      <h3>{props.letter.toUpperCase()}</h3>
+      {filteredUsers.map((item, index) => {
         return (
           <UserDetails key={index} personOne={item} />
         );
-      // map through and create a userDetails for each user in the list.
-      })}
-    </ul>
+      })
+      }
+    </div>
   );
-
 }
+
 
 AlphaSection.propTypes = {
   letter: PropTypes.string.isRequired,
