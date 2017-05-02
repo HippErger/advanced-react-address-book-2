@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ListOfUsers from "./components/ListOfUsers";
+import PropTypes from "prop-types";
 
 function App(props) {
   return (
@@ -10,9 +11,14 @@ function App(props) {
         <img src={logo} className="App-logo" alt="logo" />
         <h2>Welcome to React</h2>
       </div>
-      <ListOfUsers list={props.users} />
+      <ListOfUsers allUsers={props.users} />
     </div>
   );
+
 }
+
+App.propTypes = {
+  users: PropTypes.array.isRequired
+};
 
 export default App;

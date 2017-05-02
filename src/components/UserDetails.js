@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 
 function UserDetails({personOne}) {
   return (
@@ -15,5 +15,10 @@ function UserDetails({personOne}) {
   );
 
 }
+
+UserDetails.propTypes = {
+  personOne: PropTypes.object.isRequired
+};
+
 
 export default UserDetails;
