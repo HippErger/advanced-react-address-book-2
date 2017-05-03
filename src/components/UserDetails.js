@@ -24,16 +24,18 @@ class UserDetails extends Component {
     } return "More";
   }
 
+//  <button type="button" class="list-group-item">Cras justo odio</button>
   render() {
-    return (
-      <div>
-        <button onClick={this.handleBtnClick.bind(this)}>
-          {this.changeWord(this.state.userWasChoosen)} </button>
-        <h4>{this.props.personOne.firstName + " " + this.props.personOne.lastName}</h4>
-        <GenerateDetails person={this.props.personOne}
-          isTrue={this.state.userWasChoosen}
-          onSelect={this.props.onUserSelect} />
-      </div>
+    return (      <button type="button" className=" list-group-item" onClick={this.handleBtnClick.bind(this)}>
+        <div className="panel panel-info">
+          <div className="panel-body">
+            <h4>{this.props.personOne.firstName + " " + this.props.personOne.lastName}</h4>
+          </div>
+          <GenerateDetails person={this.props.personOne}
+            isTrue={this.state.userWasChoosen}
+            onSelect={this.props.onUserSelect} />
+        </div>
+      </button>
     );
   }
 }

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function GenerateDetails(props) {
   if (props.isTrue) {
     return (
-      <div>
+      <div className="panel-footer">
         <img src={props.person.avatar} alt="" />
         <p>{props.person.address}</p>
         <p>{props.person.phone}</p>

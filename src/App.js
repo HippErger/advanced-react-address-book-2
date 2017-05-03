@@ -18,23 +18,27 @@ class App extends Component {
     const mapFavorites = this.state.selectedUsers.map((item, index) => {
       return <UserDetails key={index} personOne={item} />;
     });
-
+// added in container and row as classnames, 7:22
     return (
       <div className="App">
-        <div>
-          <h3>Favorites</h3>
-          {mapFavorites}
-          <p>*************************</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3">
+              <p className="lead"> Favorites </p>
+              {mapFavorites}
+            </div>
+          </div>
+          <div className="md-col-6">
+            <ListOfUsers allUsers={this.props.users} faveUser={(item) => {
+              this.setState({
+                selectedUsers: [
+                  ...this.state.selectedUsers,
+                  item
+                ]
+              });
+            }} />
+          </div>
         </div>
-        <ListOfUsers allUsers={this.props.users} faveUser={(item) => {
-          console.log("now in app", item);
-          this.setState({
-            selectedUsers: [
-              ...this.state.selectedUsers,
-              item
-            ]
-          });
-        }} />
       </div>
     );
   }

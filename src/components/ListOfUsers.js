@@ -8,7 +8,7 @@ function ListOfUsers(props) {
   const everyUser = props.allUsers;
 
   return (
-    <div>
+    <div className="md-col-9">
       <h1>ALL USERS</h1>
       {alphabet.map((letter, index) => {
         return (

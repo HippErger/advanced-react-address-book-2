@@ -11,14 +11,20 @@ function AlphaSection(props) {
   });
   if (filteredUsers.length === 0) {
     return (
-      <div>
+      <div className="md-col-12">
         <h3>{props.letter.toUpperCase()}</h3>
         <h6>No Entries</h6>
       </div>
     );
   }
+//   <div class="list-group">
+//   <a href="#" class="list-group-item active">
+//     <h4 class="list-group-item-heading">List group item heading</h4>
+//     <p class="list-group-item-text">...</p>
+//   </a>
+// </div>
   return (
-    <div>
+    <div className="list-group">
       <h3>{props.letter.toUpperCase()}</h3>
       {filteredUsers.map((item, index) => {
         return (
