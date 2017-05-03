@@ -27,19 +27,20 @@ class App extends Component {
               <p className="lead"> Favorites </p>
               {mapFavorites}
             </div>
-          </div>
-          <div className="md-col-6">
-            <ListOfUsers allUsers={this.props.users} faveUser={(item) => {
-              this.setState({
-                selectedUsers: [
-                  ...this.state.selectedUsers,
-                  item
-                ]
-              });
-            }} />
+            <div className="col-md-9">
+              <ListOfUsers allUsers={this.props.users} faveUser={(item) => {
+                this.setState({
+                  selectedUsers: [
+                    ...this.state.selectedUsers,
+                    item
+                  ]
+                });
+              }} />
+            </div>
           </div>
         </div>
       </div>
+
     );
   }
 }

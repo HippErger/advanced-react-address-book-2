@@ -26,7 +26,9 @@ class UserDetails extends Component {
 
 //  <button type="button" class="list-group-item">Cras justo odio</button>
   render() {
-    return (      <button type="button" className=" list-group-item" onClick={this.handleBtnClick.bind(this)}>
+    return (
+      <button type="button" className="list-group-item list-group-item-info"
+        onClick={this.handleBtnClick.bind(this)}>
         <div className="panel panel-info">
           <div className="panel-body">
             <h4>{this.props.personOne.firstName + " " + this.props.personOne.lastName}</h4>
