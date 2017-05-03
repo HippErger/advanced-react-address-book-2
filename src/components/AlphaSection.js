@@ -22,7 +22,13 @@ function AlphaSection(props) {
       <h3>{props.letter.toUpperCase()}</h3>
       {filteredUsers.map((item, index) => {
         return (
-          <UserDetails key={index} personOne={item} />
+          <UserDetails key={index}
+            personOne={item}
+            onUserSelect={() => {
+              console.log("user was selected in AlphaSection", item);
+              props.selected(item);
+            }}
+            />
         );
       })
       }
@@ -30,10 +36,11 @@ function AlphaSection(props) {
   );
 }
 
-
 AlphaSection.propTypes = {
   letter: PropTypes.string.isRequired,
-  users: PropTypes.array.isRequired
+  users: PropTypes.array.isRequired,
+  selected: PropTypes.func.isRequired
+
 };
 
 export default AlphaSection;

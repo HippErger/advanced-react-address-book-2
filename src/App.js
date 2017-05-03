@@ -1,20 +1,43 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, {Component} from "react";
 import "./App.css";
 import ListOfUsers from "./components/ListOfUsers";
+import UserDetails from "./components/UserDetails";
 import PropTypes from "prop-types";
 
-function App(props) {
-  return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>Welcome to React</h2>
-      </div>
-      <ListOfUsers allUsers={props.users} />
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      selectedUsers: [],
+
+    };
+  }
+
+  render() {
+    const mapFavorites = this.state.selectedUsers.map((item, index) => {
+      return <UserDetails key={index} personOne={item} />;
+    });
+
+    return (
+      <div className="App">
+        <div>
+          <h3>Favorites</h3>
+          {mapFavorites}
+          <p>*************************</p>
+        </div>
+        <ListOfUsers allUsers={this.props.users} faveUser={(item) => {
+          console.log("now in app", item);
+          this.setState({
+            selectedUsers: [
+              ...this.state.selectedUsers,
+              item
+            ]
+          });
+        }} />
+      </div>
+    );
+  }
 }
 
 App.propTypes = {

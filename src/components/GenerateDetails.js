@@ -10,24 +10,22 @@ function GenerateDetails(props) {
         <p>{props.person.phone}</p>
         <p>{props.person.occupation}</p>
         <p>{props.person.state}</p>
+        <button onClick={props.onSelect}>Star As Favorite</button>
       </div>
     );
   } return (
     <div />
   );
-
-
 }
-
-
 GenerateDetails.propTypes = {
   isTrue: PropTypes.bool.isRequired,
+  onSelect: PropTypes.func,
   person: PropTypes.shape({
     avatar: PropTypes.string.isRequired,
     address: PropTypes.string.isRequired,
     phone: PropTypes.number.isRequired,
     occupation: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired
+    state: PropTypes.string
   })
 
 };

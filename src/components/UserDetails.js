@@ -18,12 +18,21 @@ class UserDetails extends Component {
     });
   }
 
+  changeWord(what) {
+    if (what) {
+      return "Less";
+    } return "More";
+  }
+
   render() {
     return (
       <div>
-        <button onClick={this.handleBtnClick.bind(this)} > More </button>
+        <button onClick={this.handleBtnClick.bind(this)}>
+          {this.changeWord(this.state.userWasChoosen)} </button>
         <h4>{this.props.personOne.firstName + " " + this.props.personOne.lastName}</h4>
-        <GenerateDetails person={this.props.personOne} isTrue={this.state.userWasChoosen} />
+        <GenerateDetails person={this.props.personOne}
+          isTrue={this.state.userWasChoosen}
+          onSelect={this.props.onUserSelect} />
       </div>
     );
   }
@@ -31,6 +40,7 @@ class UserDetails extends Component {
 
 UserDetails.propTypes = {
   personOne: PropTypes.object.isRequired,
+  onUserSelect: PropTypes.func
 
 };
 
