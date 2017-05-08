@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "./App.css";
+// import UserDetails from "./components/UserDetails";
 import ListOfUsers from "./components/ListOfUsers";
-import UserDetails from "./components/UserDetails";
 import PropTypes from "prop-types";
 
 class App extends Component {
@@ -10,25 +10,34 @@ class App extends Component {
 
     this.state = {
       selectedUsers: [],
-
+      nonSelectedUsers: props.users,
     };
   }
 
   render() {
-    const mapFavorites = this.state.selectedUsers.map((item, index) => {
-      return <UserDetails key={index} personOne={item} />;
-    });
-// added in container and row as classnames, 7:22
     return (
       <div className="App">
         <div className="container">
           <div className="row">
             <div className="col-md-3">
               <p className="lead"> Favorites </p>
-              {mapFavorites}
+              <ListOfUsers allUsers={this.state.selectedUsers} faveUser=""
+                removeUser={(item) => {
+                  console.log("From removeUser in App item or person = " + item);
+                  const arr1 = this.state.selectedUsers;
+                  console.log("From removeUser in App arr1 = " + arr1);
+                  const indexOfPerson = arr1.indexOf(item.value);
+                  console.log("From removeUser in App indexOfPerson = " + indexOfPerson);
+                  const newArr = arr1.splice(indexOfPerson);
+                  console.log("From removeUser in App newArr = " + newArr);
+                  this.setState({
+                    selectedUsers: newArr,
+                  });
+                  console.log("From end of removeUser in App person = " + item);
+                }} />
             </div>
             <div className="col-md-9">
-              <ListOfUsers allUsers={this.props.users} faveUser={(item) => {
+              <ListOfUsers allUsers={this.state.nonSelectedUsers} faveUser={(item) => {
                 this.setState({
                   selectedUsers: [
                     ...this.state.selectedUsers,

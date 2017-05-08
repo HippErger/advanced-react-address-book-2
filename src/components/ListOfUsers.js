@@ -18,6 +18,10 @@ function ListOfUsers(props) {
             selected={(item) => {
               console.log("Even in List of Users", item);
               props.faveUser(item);
+            }}
+            remove={(item) => {
+              console.log("Remove in List of Users", item);
+              props.removeUser(item);
             }} />
         );
       })
