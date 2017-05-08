@@ -3,6 +3,7 @@ import "./App.css";
 import FavoritesList from "./components/FavoritesList";
 import ListOfUsers from "./components/ListOfUsers";
 import PropTypes from "prop-types";
+import SearchBar from "./components/SearchBar";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,15 @@ class App extends Component {
     this.state = {
       selectedUsers: [],
       nonSelectedUsers: props.users,
+      searchText: ""
     };
+  }
+
+  getFilteredUsers() {
+    return this.props.users.filter((user) => {
+      const fullName = user.firstName + user.lastName;
+      return fullName.toLowerCase().indexOf(this.state.searchText) !== -1;
+    });
   }
 
   render() {
@@ -23,24 +32,23 @@ class App extends Component {
               <p className="lead"> Favorites </p>
               <FavoritesList allUsers={this.state.selectedUsers}
                 removeUser={(item) => {
-                  console.log("From removeUser in App item or person = ", item);
                   const arr1 = this.state.selectedUsers;
-                  console.log("From removeUser in App arr1 = ", arr1);
-                  const indexOfPerson = arr1.indexOf(item);
-                  console.log("From removeUser in App indexOfPerson = ", indexOfPerson);
                   const newArr = arr1.filter((person) => {
-                    return (
-                      person.id !== item.id
-                    );
+                    return person.id !== item.id;
                   });
-                  console.log("From removeUser in App newArr = ", newArr);
                   this.setState({
                     selectedUsers: newArr,
                   });
-                  console.log("From end of removeUser in App person = ", item);
                 }} />
             </div>
             <div className="col-md-9">
+              <h3>Search Users</h3>
+              <SearchBar onChange={(value) => {
+                this.setState({
+                  searchText: value
+                });
+              }}
+                filteredUsers={this.getFilteredUsers} />
               <ListOfUsers allUsers={this.state.nonSelectedUsers} faveUser={(item) => {
                 this.setState({
                   selectedUsers: [
@@ -61,6 +69,7 @@ class App extends Component {
 
 App.propTypes = {
   users: PropTypes.array.isRequired
+
 };
 
 export default App;

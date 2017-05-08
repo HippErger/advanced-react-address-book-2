@@ -9,18 +9,15 @@ function ListOfUsers(props) {
 
   return (
     <div>
-      <h1>ALL USERS</h1>
       {alphabet.map((letter, index) => {
         return (
           <AlphaSection key={index}
             letter={alphabet[index]}
             users={everyUser}
             selected={(item) => {
-              console.log("Even in List of Users", item);
               props.faveUser(item);
             }}
             remove={(item) => {
-              console.log("Removed in List of Users", item);
               props.removeUser(item);
             }} />
         );

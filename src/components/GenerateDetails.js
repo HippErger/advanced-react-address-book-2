@@ -10,7 +10,7 @@ function GenerateDetails(props) {
         <p>{props.person.phone}</p>
         <p>{props.person.occupation}</p>
         <p>{props.person.state}</p>
-        <p>Add to Favorites  -
+        <p>Add to Favorites
           <span className="glyphicon glyphicon-star-empty" onClick={props.onSelect} />
         </p>
       </div>

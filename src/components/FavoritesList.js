@@ -10,7 +10,6 @@ function FavoritesList(props) {
           <FaveDetails key={index}
             personOne={item}
             toRemove={() => {
-              console.log("user was removed in FavoritesList", item);
               props.removeUser(item);
             }}
             />

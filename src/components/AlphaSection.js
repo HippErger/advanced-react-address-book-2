@@ -31,11 +31,9 @@ function AlphaSection(props) {
             <UserDetails key={index}
               personOne={item}
               onUserSelect={() => {
-                console.log("user was selected in AlphaSection", item);
                 props.selected(item);
               }}
               toRemove={() => {
-                console.log("user was removed in AlphaSection", item);
                 props.remove(item);
               }}
               />
