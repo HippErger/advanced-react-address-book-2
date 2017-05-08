@@ -20,7 +20,7 @@ function ListOfUsers(props) {
               props.faveUser(item);
             }}
             remove={(item) => {
-              console.log("Remove in List of Users", item);
+              console.log("Removed in List of Users", item);
               props.removeUser(item);
             }} />
         );
