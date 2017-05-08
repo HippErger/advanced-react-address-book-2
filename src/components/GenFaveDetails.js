@@ -10,10 +10,7 @@ function GenerateDetails(props) {
         <p>{props.person.phone}</p>
         <p>{props.person.occupation}</p>
         <p>{props.person.state}</p>
-        <p>Add to Favorites  -
-          <span className="glyphicon glyphicon-star-empty" onClick={props.onSelect} />
-        </p>
-        <a className="btn-danger" onClick={props.onRemove}> Remove </a>
+        <a className="btn btn-danger" onClick={props.onRemove}> Remove </a>
       </div>
     );
   } return (
@@ -22,7 +19,7 @@ function GenerateDetails(props) {
 }
 GenerateDetails.propTypes = {
   isTrue: PropTypes.bool.isRequired,
-  onSelect: PropTypes.func,
+  onRemove: PropTypes.func,
   person: PropTypes.shape({
     avatar: PropTypes.string.isRequired,
     address: PropTypes.string.isRequired,
@@ -33,4 +30,4 @@ GenerateDetails.propTypes = {
 
 };
 
-// export default GenerateDetails;
+export default GenerateDetails;

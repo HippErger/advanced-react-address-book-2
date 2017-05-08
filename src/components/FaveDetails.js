@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import GenFaveDetails from "./GenerateDetails";
+import GenFaveDetails from "./GenFaveDetails";
 
 
 class FaveDetails extends Component {
@@ -48,4 +48,4 @@ FaveDetails.propTypes = {
 
 };
 
-// export default UserDetails;
+export default FaveDetails;

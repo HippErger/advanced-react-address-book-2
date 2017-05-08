@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FaveDetails from "FaveUserDetails";
+import FaveDetails from "./FaveDetails";
 
 function FavoritesList(props) {
   return (
@@ -11,7 +11,7 @@ function FavoritesList(props) {
             personOne={item}
             toRemove={() => {
               console.log("user was removed in FavoritesList", item);
-              props.remove(item);
+              props.removeUser(item);
             }}
             />
         );
@@ -27,5 +27,5 @@ FavoritesList.propTypes = {
   removeUser: PropTypes.func.isRequired,
 
 };
-//
-// export default FavoritesList;
+
+export default FavoritesList;

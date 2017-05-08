@@ -13,7 +13,6 @@ function GenerateDetails(props) {
         <p>Add to Favorites  -
           <span className="glyphicon glyphicon-star-empty" onClick={props.onSelect} />
         </p>
-        <a className="btn-danger" onClick={props.onRemove}> Remove </a>
       </div>
     );
   } return (
